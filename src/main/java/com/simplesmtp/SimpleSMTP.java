@@ -27,7 +27,6 @@ public void sendEmail(String Sub,String msg,String sender,String to) {      // M
             return new PasswordAuthentication(username, password);          // passing the given email and password to ensure login is successful before every message attempt
         }
       });
-
     try {                                                                   //sending the message in an try catch block as it enables smooth functioning an helps catching errors
         Message message = new MimeMessage(session);                         // making message a MIME  message (MIME stands for: Multipurpose Internet Mail Extensions)
         message.setFrom(new InternetAddress(sender));                       // as MIME is a Mail messaging extension so it will have a from and to address
@@ -40,25 +39,32 @@ public void sendEmail(String Sub,String msg,String sender,String to) {      // M
     } catch (MessagingException e) {
         throw new RuntimeException(e);                                      // if error are thrown it will be shown here
     	}
-	}
-	public static void main(String[] args) {                                // Here basically everything is self explainatory so please read carefully
+    }
+ 
+	public static void main(String[] args) {    
         Scanner sc = new Scanner(System.in);
         final String Email;
         final String Pass;
         final String To;
         final String Body;
         final String Subject;
+        
         System.out.println("Please enter the Recipeient's Name :");
         To = sc.next();
+        
         System.out.println("please enter the Subject of your email :");
         Subject = sc.next();
+
         System.out.println("Please enter the Body of you message( NOTE! this will be the message you want to send) :");
         Body = sc.next();
+
         System.out.println("Please enter your email Address :");
         Email = sc.next();
+
         System.out.println("Please enter your password (Press Enter when done) :");
         Pass = sc.next();
-        sc.close();
+        
+        sc.close();                           // Here basically everything is self explainatory so please read carefully
 		SimpleSMTP s = new SimpleSMTP(Email, Pass);
 		s.sendEmail(Subject, Body, Email, To);
 	}
