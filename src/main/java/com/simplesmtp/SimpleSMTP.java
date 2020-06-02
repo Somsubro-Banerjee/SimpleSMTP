@@ -42,7 +42,7 @@ public void sendEmail(String Sub,String msg,String sender,String to) {      // M
     }
  
 	public static void main(String[] args) {    
-        Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);                                // Here basically everything is self explainatory so please read carefully
         final String Email;
         final String Pass;
         final String To;
@@ -64,7 +64,8 @@ public void sendEmail(String Sub,String msg,String sender,String to) {      // M
         System.out.println("Please enter your password (Press Enter when done) :");
         Pass = sc.next();
         
-        sc.close();                           // Here basically everything is self explainatory so please read carefully
+        sc.close();  
+                               
 		SimpleSMTP s = new SimpleSMTP(Email, Pass);
 		s.sendEmail(Subject, Body, Email, To);
 	}
