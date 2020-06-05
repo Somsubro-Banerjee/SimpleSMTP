@@ -37,10 +37,10 @@ public void sendEmail(String Sub,String msg,String sender,String to) {      // M
         Transport.send(message);                                            //literally calls the Transport layer and sends the message which was defined above
         System.out.println("Your email was sent successfully.....Have a nice day!!!");
     } catch (MessagingException e) {
+        e.printStackTrace();
         throw new RuntimeException(e);                                      // if error are thrown it will be shown here
     	}
     }
- 
 	public static void main(String[] args) {    
         Scanner sc = new Scanner(System.in);                                // Here basically everything is self explainatory so please read carefully
         final String Email;
@@ -48,21 +48,23 @@ public void sendEmail(String Sub,String msg,String sender,String to) {      // M
         final String To;
         final String Body;
         final String Subject;
-        
-        System.out.println("Please enter the Recipeient's Name :");
-        To = sc.next();
-        
-        System.out.println("please enter the Subject of your email :");
-        Subject = sc.next();
-
-        System.out.println("Please enter the Body of you message( NOTE! this will be the message you want to send) :");
-        Body = sc.next();
 
         System.out.println("Please enter your email Address :");
         Email = sc.next();
 
         System.out.println("Please enter your password (Press Enter when done) :");
         Pass = sc.next();
+
+        System.out.println("Please enter the Recipient's Name :");
+        To = sc.next();
+
+        System.out.println("please enter the Subject of your email :");
+        Subject = sc.next();
+
+        System.out.println("Please enter the Body of you message( NOTE! this will be the message you want to send) :");
+        Body = sc.next();
+
+
         
         sc.close();  
                                
